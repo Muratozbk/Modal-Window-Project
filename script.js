@@ -3,45 +3,39 @@ console.log('hello');
 
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
-const btnCloseModal = document.querySelector('.close-model');
+const btnCloseModal = document.querySelector('.close-modal');
 
-const btnsShowModal = document.querySelectorAll('.show-modal');
-console.log(btnsShowModal);
+const btnsOpenModal = document.querySelectorAll('.show-modal');
+console.log(btnsOpenModal);
 
+const closeModal = function () {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
 
+const openModal = function () {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+}
 
+for (let i = 0; i < btnsOpenModal.length; i++)
+    btnsOpenModal[i].addEventListener('click', openModal);
 
+btnCloseModal.addEventListener('click', closeModal);
 
+overlay.addEventListener('click', closeModal);
 
-
-
-
-
-
-
-
-
-
-
-// document.querySelectorAll('.show-modal').forEach(button => {
+// btnsOpenModal.forEach(button => {
 //     button.addEventListener('click', () => {
 //         document.querySelector('.modal').classList.remove('hidden')
-//     })
-// })
-
-// document.querySelector('.overlay').addEventListener('click', () => {
-//     document.querySelector('.modal').classList.add('hidden')
-//     document.querySelector('.overlay').classList.add('hidden')
-
-// })
-
-// document.querySelector('.close-modal').addEventListener('click', () => {
-//     document.querySelector('.modal').classList.add('hidden')
-//     document.querySelector('.overlay').classList.add('hidden')
-// })
-
-// document.querySelectorAll('.show-modal').forEach(button => {
-//     button.addEventListener('click', () => {
 //         document.querySelector('.overlay').classList.remove('hidden')
 //     })
 // })
+
+// btnCloseModal.addEventListener('click', function () {
+//     modal.classList.add('hidden');
+//     overlay.classList.add('hidden');
+// });
+
+// v:81
+
