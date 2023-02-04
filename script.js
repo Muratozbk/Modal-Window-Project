@@ -18,12 +18,30 @@ const openModal = function () {
     overlay.classList.remove('hidden');
 }
 
-for (let i = 0; i < btnsOpenModal.length; i++)
-    btnsOpenModal[i].addEventListener('click', openModal);
+// for (let i = 0; i < btnsOpenModal.length; i++)
+//     btnsOpenModal[i].addEventListener('click', openModal);
+
+btnsOpenModal.forEach(button => {
+    button.addEventListener('click', openModal)
+})
 
 btnCloseModal.addEventListener('click', closeModal);
 
 overlay.addEventListener('click', closeModal);
+
+//Keydown Functions--- v:81
+document.addEventListener('keydown', function (e) {
+    console.log(e.key);
+
+    if (e.key === 'Escape' && !modal.classList.contains('hidden'))
+        closeModal()
+})
+
+document.addEventListener('keydown', function (f) {
+    if (f.key === 'q' && !modal.classList.contains('hidden'))
+        closeModal()
+})
+
 
 // btnsOpenModal.forEach(button => {
 //     button.addEventListener('click', () => {
@@ -37,5 +55,5 @@ overlay.addEventListener('click', closeModal);
 //     overlay.classList.add('hidden');
 // });
 
-// v:81
+
 
